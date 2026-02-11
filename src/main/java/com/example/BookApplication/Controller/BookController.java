@@ -6,8 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Optional;
-
 @RestController
 @RequestMapping("/books/v1")
 public class BookController {
@@ -25,6 +23,12 @@ public class BookController {
         return ResponseEntity.ok(savedBook);
     }
 
+    /**
+     * Retrieve book based on its id
+     *
+     * @param id identifier of the book
+     * @return Book for requested ID if its found
+     */
     @GetMapping ("/getBook/{id}")
     public Book getBookbyId(@PathVariable Long id){
         Book savedBook = bookService.getBook(id);
